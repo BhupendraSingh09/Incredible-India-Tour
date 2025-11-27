@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Incredible India Tours | Discover India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+        content="Plan your dream trip to India. Heritage, beaches, mountains, wildlife and festivals – curated tours across Incredible India." />
+
+  <style>
+    :root {
+      --primary: #e65100;
+      --primary-dark: #bf360c;
+      --accent: #ffca28;
+      --bg: #fdfaf5;
+      --text: #222222;
+      --muted: #666666;
+      --card-bg: #ffffff;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.12);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --max-width: 1150px;
+      --transition: 0.25s ease;
+      --nav-height: 72px;
+      --font-heading: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    img,
+    video,
+    iframe {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(5, 3, 0, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      color: #ffffff;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff3e0, var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      padding: 0.3rem 0.1rem;
+      position: relative;
+      opacity: 0.9;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.5rem 1.2rem;
+      border-radius: var(--radius-pill);
+      background: var(--accent);
+      color: #3e2723;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(255, 202, 40, 0.4);
+      transition: transform var(--transition), box-shadow var(--transition),
+        background var(--transition);
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      background: #ffd54f;
+      box-shadow: 0 16px 36px rgba(255, 213, 79, 0.5);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 10px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    h2.section-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      font-size: 0.95rem;
+    }
+
+    
+
+    .hero {
+      padding: 0;
+    }
+
+    .hero-media-wrap {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #ffffff;
+      background: #000;
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.65) saturate(1.2);
+      transform: scale(1.03);
+      transform-origin: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 0%, rgba(255, 235, 59, 0.32) 0, transparent 45%),
+                  linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(10, 5, 0, 0.85));
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: var(--max-width);
+      width: 100%;
+      padding: 5rem 1.5rem 4.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      padding: 0.25rem 0.85rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 245, 157, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffecb3;
+      margin-bottom: 1.2rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #ffca28;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4.4vw, 3.4rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(90deg, #ffe082, #ffab40);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      color: #ffe7c6;
+      margin-bottom: 1.8rem;
+      font-size: 1rem;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1.6rem;
+    }
+
+    .btn-primary {
+      padding: 0.85rem 1.7rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: var(--accent);
+      color: #3e2723;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 14px 32px rgba(255, 202, 40, 0.6);
+      transition: background var(--transition), transform var(--transition),
+        box-shadow var(--transition);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: #ffd54f;
+      box-shadow: 0 18px 42px rgba(255, 213, 79, 0.7);
+    }
+
+    .btn-outline {
+      padding: 0.8rem 1.4rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: rgba(0, 0, 0, 0.25);
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: border var(--transition), background var(--transition),
+        box-shadow var(--transition), transform var(--transition), color var(--transition);
+      color: #fff3e0;
+      backdrop-filter: blur(6px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(0, 0, 0, 0.45);
+      border-color: #ffcc80;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: #ffe0b2;
+    }
+
+    .hero-meta strong {
+      display: block;
+      font-size: 1rem;
+      color: #ffffff;
+    }
+
+    .hero-right-card {
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 24px;
+      padding: 1.3rem 1.4rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-mini-img {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 90px;
+      position: relative;
+    }
+
+    .hero-mini-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      transition: transform 0.5s ease;
+    }
+
+    .hero-mini-img:hover img {
+      transform: scale(1.08);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: #ffecb3;
+      margin-top: 0.6rem;
+    }
+
+    .hero-stats strong {
+      display: block;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    .play-pill {
+      margin-top: 0.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+    }
+
+    .play-circle {
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      background: #ffca28;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #3e2723;
+    }
+
+    
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    .pill {
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-pill);
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 220px;
+      color: #ffffff;
+      box-shadow: var(--shadow-soft);
+      cursor: pointer;
+      transform: translateY(0);
+      transition: transform var(--transition), box-shadow var(--transition),
+        filter var(--transition);
+      background: #000;
+    }
+
+    .card-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(1.1);
+      transform: scale(1.05);
+      transition: transform 0.5s ease, filter 0.4s ease;
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25));
+    }
+
+    .card-content {
+      position: relative;
+      padding: 1.1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
+    }
+
+    .card:hover .card-bg {
+      transform: scale(1.09);
+      filter: brightness(0.82) saturate(1.2);
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: #ffe082;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: #ffecb3;
+      max-width: 95%;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      margin-top: 0.7rem;
+    }
+
+    .card-meta span {
+      color: #ffe0b2;
+    }
+
+    .card-meta strong {
+      color: #ffcc80;
+      font-size: 0.95rem;
+    }
+
+    
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr;
+      gap: 1rem;
+    }
+
+    .gallery-main {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      max-height: 360px;
+    }
+
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-side {
+      display: grid;
+      gap: 1rem;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-thumb {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      max-height: 170px;
+    }
+
+    .gallery-thumb img {
+      transition: transform 0.35s ease;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+
+    .gallery-thumb:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-label {
+      position: absolute;
+      left: 0.8rem;
+      bottom: 0.7rem;
+      padding: 0.15rem 0.65rem;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 0, 0, 0.6);
+      color: #ffffff;
+      font-size: 0.7rem;
+    }
+
+    
+
+    .video-section {
+      background: radial-gradient(circle at top left, #fff3e0, #fbe9e7);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .video-wrapper {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      background: #000;
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      border: 0;
+    }
+
+    .video-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.6rem;
+    }
+
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .quote-card {
+      background: var(--card-bg);
+      border-radius: 22px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-card::before {
+      content: "“";
+      position: absolute;
+      font-size: 4.5rem;
+      left: 1.1rem;
+      top: -0.7rem;
+      color: rgba(255, 202, 40, 0.35);
+    }
+
+    .quote-text {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    .quote-author {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .quote-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .rating {
+      margin-top: 0.4rem;
+      font-size: 0.82rem;
+      color: #fbc02d;
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      margin-top: 1.1rem;
+    }
+
+    .stat-chip {
+      background: #fff3e0;
+      border-radius: var(--radius-pill);
+      padding: 0.45rem 0.85rem;
+    }
+
+  
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border-radius: 22px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .contact-card h3 {
+      margin-bottom: 0.7rem;
+      font-size: 1.3rem;
+    }
+
+    .contact-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .form-group {
+      margin-bottom: 0.9rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+      color: #444;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border-radius: 10px;
+      padding: 0.6rem 0.7rem;
+      border: 1px solid rgba(0, 0, 0, 0.13);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border var(--transition), box-shadow var(--transition),
+        background var(--transition);
+      background: #fffdf8;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(230, 81, 0, 0.2);
+      background: #ffffff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-details {
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .contact-details strong {
+      color: var(--text);
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--radius-pill);
+      background: #e8f5e9;
+      font-size: 0.8rem;
+      margin-top: 0.7rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      background: #fefaf2;
+    }
+
+    
+
+    @media (max-width: 1024px) {
+      .hero-content {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right-card {
+        margin-top: 2rem;
+      }
+
+      .cards-grid,
+      .gallery-grid,
+      .video-grid,
+      .testimonials-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-main {
+        max-height: 260px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        padding: 0 1rem;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: var(--nav-height);
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(5, 3, 0, 0.96);
+        padding: 1rem 1.2rem;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        transform: translateY(-20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .nav-links.show {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-cta {
+        align-self: stretch;
+        justify-content: center;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      section {
+        padding: 3.2rem 1rem;
+      }
+
+      .hero-content {
+        padding: 4.2rem 1rem 3.8rem;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-mini-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-mini-img {
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- NAVBAR -->
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <div class="logo-icon">IN</div>
+        <span>Incredible India Tours</span>
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#hero">Home</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#video">Film</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+        <button class="nav-cta" onclick="scrollToSection('contact')">
+          Plan My Trip
+        </button>
+      </nav>
+
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-media-wrap">
+        
+        <img
+          src="https://images.unsplash.com/photo-1548013146-72479768bada"
+          alt="Sunrise at the Taj Mahal in India"
+          class="hero-bg-img"
+        />
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <div>
+            <div class="badge">
+              <span class="badge-dot"></span>
+              Authentic, tailor-made holidays across India
+            </div>
+            <h1 class="hero-title">
+              Discover the colors of <span class="highlight">Incredible India</span>
+            </h1>
+            <p class="hero-text">
+              Palaces, backwaters, mountains, jungles and festivals – our local
+              experts design immersive journeys that reveal the real India, not just
+              the tourist trail.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="scrollToSection('contact')">
+                Get a custom itinerary →
+              </button>
+              <button class="btn-outline" onclick="scrollToSection('video')">
+                ▶ Watch our India travel film
+              </button>
+            </div>
+
+            <div class="hero-meta">
+              <div>
+                <strong>5000+ happy travelers</strong>
+                From 20+ countries worldwide
+              </div>
+              <div>
+                <strong>15+ years on the road</strong>
+                Trusted local network & guides
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-right-card">
+            <h3 style="font-size:1.1rem;margin-bottom:0.4rem;">
+              India Highlights – 10 Days
+            </h3>
+            <p style="font-size:0.85rem;color:#ffe0b2;margin-bottom:0.4rem;">
+              Delhi • Agra • Jaipur • Udaipur – a perfect first journey through
+              North India with heritage hotels, sunrise at the Taj and curated
+              experiences.
+            </p>
+
+            <div class="hero-mini-grid">
+              <div class="hero-mini-img">
+                <img
+                  src="https://images.pexels.com/photos/356830/pexels-photo-356830.jpeg"
+                  alt="Taj Mahal in Agra, India"
+                />
+              </div>
+              <div class="hero-mini-img">
+                <img
+                  src="https://images.pexels.com/photos/461940/pexels-photo-461940.jpeg"
+                  alt="Palace in Jaipur, Rajasthan, India"
+                />
+              </div>
+              <div class="hero-mini-img">
+                <img
+                  src="https://images.pexels.com/photos/3927841/pexels-photo-3927841.jpeg"
+                  alt="Kerala backwaters houseboat, India"
+                />
+              </div>
+              <div class="hero-mini-img">
+                <img
+                  src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg"
+                  alt="Himalayan mountains in India"
+                />
+              </div>
+            </div>
+
+            <div class="hero-stats">
+              <div>
+                <strong>From ₹48,000</strong>
+                per person (land only)
+              </div>
+              <div>
+                <strong>Daily departures</strong>
+                Fully customizable routes
+              </div>
+            </div>
+
+            <div class="play-pill" onclick="scrollToSection('video')">
+              <div class="play-circle">▶</div>
+              <span>2-minute teaser: “Incredible India Stories”</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESTINATIONS -->
+    <section id="destinations">
+      <div class="section-inner">
+        <h2 class="section-title">Top Regions to Explore</h2>
+        <p class="section-subtitle">
+          Give your guests a visual taste of where they can travel. These image
+          cards can be linked to detailed itineraries or PDFs for each region.
+        </p>
+
+        <div class="pill-row">
+          <div class="pill">Heritage & Culture</div>
+          <div class="pill">Backwaters</div>
+          <div class="pill">Beaches</div>
+          <div class="pill">Himalayas</div>
+          <div class="pill">Wildlife</div>
+          <div class="pill">Ayurveda & Wellness</div>
+        </div>
+
+        <div class="cards-grid">
+          <!-- North India -->
+          <article class="card">
+            <img
+              src="https://www.elefantastic.in/uploads/jaipur_1734692769.webp" alt="Jaipur"
+              alt="Amber Fort in Jaipur, Rajasthan, India"
+              class="card-bg"
+            />
+            <div class="card-overlay"></div>
+            <div class="card-content">
+              <div>
+                <div class="card-tag">North India</div>
+                <h3 class="card-title">Delhi • Agra • Jaipur – Golden Triangle</h3>
+                <p class="card-text">
+                  Iconic monuments, bazaars, forts and food trails – ideal for
+                  first-time visitors wanting a rich culture fix.
+                </p>
+              </div>
+              <div class="card-meta">
+                <span>4–7 days • All year</span>
+                <strong>From ₹18,500</strong>
+              </div>
+            </div>
+          </article>
+
+          <!-- South India -->
+          <article class="card">
+            <img
+              src="https://dwq3yv87q1b43.cloudfront.net/public/blogs/fit-in/1200x675/Blog_20241010-942624340-1728560023.jpg"
+              alt="Houseboat in Kerala backwaters, India"
+              class="card-bg"
+            />
+            <div class="card-overlay"></div>
+            <div class="card-content">
+              <div>
+                <div class="card-tag">South India</div>
+                <h3 class="card-title">Kerala Backwaters & Tea Hills</h3>
+                <p class="card-text">
+                  Houseboat cruises, spice plantations and Ayurveda stays between
+                  Kochi, Munnar and Alleppey.
+                </p>
+              </div>
+              <div class="card-meta">
+                <span>6–9 days • Oct–Mar</span>
+                <strong>From ₹26,000</strong>
+              </div>
+            </div>
+          </article>
+
+          <!-- Himalayas -->
+          <article class="card">
+            <img
+              src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"
+              alt="Himalayan landscape with monastery in India"
+              class="card-bg"
+            />
+            <div class="card-overlay"></div>
+            <div class="card-content">
+              <div>
+                <div class="card-tag">Himalayas</div>
+                <h3 class="card-title">Himalayan Retreats & Spiritual Trails</h3>
+                <p class="card-text">
+                  Rishikesh, Dharamshala, Ladakh & beyond – yoga retreats, treks
+                  and monasteries with breathtaking views.
+                </p>
+              </div>
+              <div class="card-meta">
+                <span>5–10 days • Mar–Jun</span>
+                <strong>From ₹22,000</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="section-inner">
+        <h2 class="section-title">India in Frames</h2>
+        <p class="section-subtitle">
+          Use real photos from your tours – guests, festivals, wildlife, food and
+          landscapes. This section builds emotion and trust.
+        </p>
+
+        <div class="gallery-grid">
+          <div class="gallery-main">
+            
+            <img
+              src="https://www.earthtrekkers.com/wp-content/uploads/2017/01/Temple-Art.jpg.optimal.jpg"
+              alt="Ganges ghats in Varanasi, India"
+              id="mainGalleryImage"
+            />
+          </div>
+
+          <div class="gallery-side">
+            <!-- Thumbnail 1 -->
+            <div
+              class="gallery-thumb"
+              onclick="swapGalleryImage('https://images.pexels.com/photos/2090651/pexels-photo-2090651.jpeg')"
+            >
+              <img
+                src="https://images.pexels.com/photos/2090651/pexels-photo-2090651.jpeg"
+                alt="Tea plantations in Munnar, Kerala, India"
+              />
+              <div class="gallery-label">Tea Hills of Munnar</div>
+            </div>
+
+            <!-- Thumbnail 2 -->
+            <div
+              class="gallery-thumb"
+              onclick="swapGalleryImage('https://images.pexels.com/photos/965157/pexels-photo-965157.jpeg')"
+            >
+              <img
+                src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/f4/87/c4.jpg"
+                alt="Camel safari in Thar Desert, Rajasthan, India"
+              />
+              <div class="gallery-label">Thar Desert, Rajasthan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section id="video" class="video-section">
+      <div class="section-inner video-grid">
+        <div>
+          <h2 class="section-title">Watch Our India Travel Film</h2>
+          <p class="section-subtitle">
+            Two minutes of pure wanderlust – show your guests the energy, colors
+            and emotions of India through a short cinematic video. Replace the
+            YouTube link with your own teaser or corporate film.
+          </p>
+
+          <ul style="font-size:0.9rem;color:var(--muted);margin-left:1.1rem;">
+            <li>Perfect for presentations, social media and your office TV.</li>
+            <li>Can showcase guest experiences, your team and key destinations.</li>
+            <li>Add subtitles for international travelers.</li>
+          </ul>
+
+          <p class="video-note">
+            Tip: Host the video on YouTube or Vimeo for fast loading, then embed it
+            here.
+          </p>
+        </div>
+
+        <div class="video-wrapper">
+          
+          <iframe
+            src="indian tourism2.mp4" type="video/mp4"
+            title="Incredible India travel film"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="section-inner testimonials-grid">
+        <div>
+          <h2 class="section-title">Our Guests Speak</h2>
+          <p class="section-subtitle">
+            Add reviews from international and Indian travelers – social proof
+            increases enquiries and conversions.
+          </p>
+
+          <div class="quote-card">
+            <p class="quote-text">
+              “Our trip across North and South India was even better than we
+              imagined. The guides were warm, knowledgeable and flexible. We loved
+              the mix of must-see highlights and hidden local spots.”
+            </p>
+            <div class="quote-author">Emma & David</div>
+            <div class="quote-meta">UK travelers • 14-day India highlights</div>
+            <div class="rating">★★★★★ Rated 4.9/5 on TripAdvisor</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="stats-row">
+            <div class="stat-chip">✔ Customizable itineraries</div>
+            <div class="stat-chip">✔ 24/7 on-trip support</div>
+            <div class="stat-chip">✔ Local licensed guides</div>
+            <div class="stat-chip">✔ Family & group friendly</div>
+            <div class="stat-chip">✔ MICE & corporate events</div>
+            <div class="stat-chip">✔ Destination weddings</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / LEAD FORM -->
+    <section id="contact">
+      <div class="section-inner contact-grid">
+        <div class="contact-card">
+          <h3>Start Planning Your Indian Holiday</h3>
+          <p>
+            Share a few details and our travel specialist will respond with ideas,
+            pricing and a fully customized itinerary within 24 hours.
+          </p>
+
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">WhatsApp / Phone</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+              <div class="form-group">
+                <label for="travelMonth">Planned Travel Month</label>
+                <select id="travelMonth" name="travelMonth">
+                  <option value="">Select</option>
+                  <option>January</option>
+                  <option>February</option>
+                  <option>March</option>
+                  <option>April</option>
+                  <option>May</option>
+                  <option>June</option>
+                  <option>July</option>
+                  <option>August</option>
+                  <option>September</option>
+                  <option>October</option>
+                  <option>November</option>
+                  <option>December</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="travelers">No. of Travelers</label>
+                <input
+                  type="text"
+                  id="travelers"
+                  name="travelers"
+                  placeholder="e.g. 2 adults, 1 child"
+                />
+              </div>
+              <div class="form-group">
+                <label for="budget">Approx. Budget (per person)</label>
+                <input
+                  type="text"
+                  id="budget"
+                  name="budget"
+                  placeholder="e.g. ₹30,000 / $600"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Where in India would you like to go?</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell us your interests – Rajasthan, Kerala, Goa, Himalayas, wildlife, culture, food, etc."
+              ></textarea>
+            </div>
+
+            <button class="btn-primary" type="submit">
+              Send enquiry
+            </button>
+          </form>
+        </div>
+
+        <div class="contact-details">
+          <strong>Talk to a travel specialist</strong>
+          <span>Email: info@incredibleindiatours.com</span>
+          <span>Phone / WhatsApp: +91-98765-43210</span>
+          <span>Office: New Delhi & Kochi, India</span>
+
+          <div class="contact-pill">
+            💬 Prefer WhatsApp? Mention it in your message and we’ll reply there.
+          </div>
+
+          <p style="margin-top:1.2rem;">
+            Business partners: We also handle MICE, corporate offsites and
+            destination weddings across India.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Incredible India Tours. Crafted with love in India.
+  </footer>
+</div>
+
+<script>
+  // Simple mobile nav toggle
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+
+  // Smooth scrolling helper
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  // Gallery image swap
+  function swapGalleryImage(src) {
+    const mainImg = document.getElementById("mainGalleryImage");
+    if (mainImg) {
+      mainImg.src = src;
+    }
+  }
+
+  // Simple form handler (replace with real backend later)
+  function handleSubmit(event) {
+    event.preventDefault();
+    alert(
+      "Thank you for your enquiry! Our team will contact you shortly with travel ideas for India."
+    );
+    event.target.reset();
+  }
+
+  // Set current year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
